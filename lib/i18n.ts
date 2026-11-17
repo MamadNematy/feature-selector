@@ -1,0 +1,41 @@
+// Every visible string of the site, in English and Persian.
+const en = {
+  toggle: "فارسی", cta: "Try it", tag: "Dimensionality reduction for data mining",
+  intro: "Enter a dataset with any number of features. The program scores each column with |mean| / std and removes the weak ones.",
+  start: "Start reducing", built: "Built with", how: "How the program decides",
+  formula: "J = |mean| / std. Keep the column if J ≥ threshold. The threshold is the average of all indices, or you set it by hand.",
+  run: "Run it on your data", faq: "Questions",
+  footer1: "Mean / Std Feature Selector, a Data Mining course project",
+  footer2: "Mohammad Hassan Nemati · Instructor: Prof. Derikvand · Course: Data Mining",
+  stack: [["Next.js", "App Router and build tooling"], ["TypeScript", "Typed math and data model"], ["Tailwind CSS", "All styling, no custom CSS files"], ["TanStack Table", "Headless table for the results"]],
+  steps: [["1", "Mean", "Add up each column and divide by the number of rows. It shows where the column is centred."], ["2", "Standard deviation", "Measure how far the values spread around that mean, using n − 1 for a sample."], ["3", "Index and threshold", "Divide |mean| by std. A column below the threshold is centred near zero relative to its spread, so it is removed."]],
+  qa: [["Why divide by the standard deviation?", "The mean alone depends on the units of the column. Dividing by the spread tells us how large the signal is compared with the noise."], ["What happens if a column is constant?", "Its std is 0, so the index is infinite and the column is always kept. The program shows ∞ instead of crashing."], ["Why n − 1 and not n?", "Our rows are a sample of a larger population, and n − 1 gives an unbiased variance estimate."]],
+  tabs: { Input: "Input", Calculation: "Calculation", Result: "Result" },
+  threshold: "Threshold", auto: "Auto (average of indices)", invalid: "Enter at least 2 rows, and make sure every cell is a number.",
+  addRow: "Add row", addCol: "Add column", sample: "Sample data", iris: "Iris data", random: "Random data", csv: "Import CSV", download: "Download reduced CSV",
+  calc: "Calculate", show: "Show result",
+  feature: "Feature", mean: "Mean", std: "Std", index: "|Mean| / Std", decision: "Decision", keep: "Keep", remove: "Remove",
+  reduced: (k: number, n: number) => `Reduced dataset: ${k} of ${n} features`,
+  allBelow: "Every feature is below the threshold. Lower it to keep some.",
+};
+const fa: typeof en = {
+  toggle: "English", cta: "امتحان کنید", tag: "کاهش بعد داده‌ها برای داده‌کاوی",
+  intro: "یک مجموعه‌داده با هر تعداد ویژگی وارد کنید. برنامه هر ستون را با |میانگین| ÷ انحراف معیار امتیاز می‌دهد و ستون‌های ضعیف را حذف می‌کند.",
+  start: "شروع کاهش بعد", built: "ساخته‌شده با", how: "برنامه چگونه تصمیم می‌گیرد",
+  formula: "J = |میانگین| ÷ انحراف معیار. اگر J ≥ آستانه باشد، ستون نگه داشته می‌شود. آستانه میانگین همه شاخص‌هاست، یا خودتان تعیین می‌کنید.",
+  run: "روی داده خودتان اجرا کنید", faq: "سؤال‌های متداول",
+  footer1: "Mean / Std Feature Selector، پروژه درس داده‌کاوی",
+  footer2: "محمد حسن نعمتی · استاد: دریکوند · درس: داده‌کاوی",
+  stack: [["Next.js", "ساختار برنامه و ساخت پروژه"], ["TypeScript", "نوع‌دهی به محاسبات و داده"], ["Tailwind CSS", "تمام استایل‌ها بدون فایل CSS جداگانه"], ["TanStack Table", "منطق جدول نتایج"]],
+  steps: [["1", "میانگین", "هر ستون را جمع می‌کنیم و بر تعداد سطرها تقسیم می‌کنیم. میانگین مرکز ستون را نشان می‌دهد."], ["2", "انحراف معیار", "پراکندگی مقادیر را حول میانگین می‌سنجیم و برای نمونه از n − 1 استفاده می‌کنیم."], ["3", "شاخص و آستانه", "|میانگین| را بر انحراف معیار تقسیم می‌کنیم. ستونی که زیر آستانه باشد نسبت به پراکندگی‌اش حول صفر است و حذف می‌شود."]],
+  qa: [["چرا بر انحراف معیار تقسیم می‌کنیم؟", "میانگین به‌تنهایی به واحد ستون وابسته است. تقسیم بر پراکندگی نشان می‌دهد سیگنال نسبت به نویز چقدر بزرگ است."], ["اگر ستونی ثابت باشد چه می‌شود؟", "انحراف معیارش صفر است، پس شاخص بی‌نهایت می‌شود و ستون همیشه نگه داشته می‌شود. برنامه به‌جای خطا ∞ نشان می‌دهد."], ["چرا n − 1 و نه n؟", "سطرهای ما نمونه‌ای از یک جامعه بزرگ‌تر هستند و n − 1 برآورد نااریب واریانس می‌دهد."]],
+  tabs: { Input: "ورود داده", Calculation: "محاسبات", Result: "نتیجه" },
+  threshold: "آستانه", auto: "خودکار (میانگین شاخص‌ها)", invalid: "حداقل ۲ سطر وارد کنید و مطمئن شوید همه خانه‌ها عدد هستند.",
+  addRow: "افزودن سطر", addCol: "افزودن ستون", sample: "داده نمونه", iris: "داده Iris", random: "داده تصادفی", csv: "ورود CSV", download: "دانلود داده کاهش‌یافته",
+  calc: "محاسبه کن", show: "نمایش نتیجه",
+  feature: "ویژگی", mean: "میانگین", std: "انحراف معیار", index: "|میانگین| ÷ انحراف", decision: "تصمیم", keep: "نگه‌دار", remove: "حذف",
+  reduced: (k: number, n: number) => `داده کاهش‌یافته: ${k} ویژگی از ${n}`,
+  allBelow: "همه ویژگی‌ها زیر آستانه‌اند. آستانه را کمتر کنید تا ستونی بماند.",
+};
+export const dict = { en, fa };
+export type Dict = typeof en;

@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #1c1c1b;
+  --color-card: #272726;
+  --color-line: #3a3a38;
+  --color-ink: #e8e5dc;
+  --color-mute: #a09d95;
+  --color-coral: #ee7a65;
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  /* fine grain like the reference site, drawn by an inline SVG filter */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
+}
+input[type="number"]::-webkit-inner-spin-button { appearance: none; }
+:focus-visible { outline: 2px solid var(--color-coral); outline-offset: 2px; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes flow { to { stroke-dashoffset: -24; } }
+@keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, -30px); } }
+@keyframes pulseBar { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.8); } }
+@keyframes growX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes fill { from { width: 0; } to { width: 100%; } }
+@keyframes fly { from { transform: translateX(-120px) rotate(90deg); } to { transform: translateX(calc(100vw + 120px)) rotate(90deg); } }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.show { opacity: 1; transform: none; }
+.rise { animation: rise 0.7s ease both; }
+.flow { stroke-dasharray: 6 6; animation: flow 1s linear infinite; }
+.pixels {
+  background-image: linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
