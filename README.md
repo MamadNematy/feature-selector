@@ -2,9 +2,9 @@
 
 Interactive dimensionality-reduction tool. It scores every column of a dataset with the **mean-to-standard-deviation index** and removes the weak ones.
 
-**Live demo:** _add your Vercel link here_
+**Live demo:** https://feature-selector.vercel.app
 
-![screenshot](doc/screenshot.png)
+![Feature Selector Screenshot](/screenshot/screenshot.png)
 
 ## How it works
 
