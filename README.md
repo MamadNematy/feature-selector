@@ -4,7 +4,7 @@ Interactive dimensionality-reduction tool. It scores every column of a dataset w
 
 **Live demo:** _add your Vercel link here_
 
-![screenshot](docs/screenshot.png)
+![screenshot](doc/screenshot.png)
 
 ## How it works
 
